@@ -30,7 +30,7 @@ export default function Navbar() {
             height={40}
             className="h-12 w-12"
           />
-          <span className="font-bold text-[#843d8d] text-xl">Future Podar Learn School, Sakoli</span>
+          <span className="font-bold text-[#843d8d] text-xl">FUTURE PODAR LEARN SCHOOL, SAKOLI</span>
         </div>
 
         {/* Desktop Links */}
@@ -51,7 +51,7 @@ export default function Navbar() {
               </Link>
             )
           })}
-          <Link href="/contact" passHref>
+          <Link href="/applyform">
             <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200">
               Apply Now
             </button>

@@ -2,14 +2,26 @@
 import { Eye, Target, Award, Trophy, Star, Medal, ThumbsUp, Crown } from "lucide-react";
 import Image from "next/image";
 
-const teamData = [
-    {
-      name: "Dr. Meera Kulkarni",
-      role: "Principal, Future Podar Learn School,(M.Ed, Ph.D. Education, 25+ years experience)",
-      image: "/asset/parent_img/img4.jpg",
-      description: "At Future Podar Learn School, we believe that every child is unique and has the potential to excel. Our role is to nurture this potential through personalized attention, innovative teaching methods, and a caring environment. We are committed to developing not just academic achievers, but confident, compassionate, and responsible citizens of tomorrow.",
-    },
-  ]
+const directorData = [
+  {
+    name: "Mrs. Namita Ajay Tumsare",
+    role: "Director",
+    image: "/asset/parent_img/img4.jpg",
+    description:
+      "As the world is changing rapidly, it is our purpose to equip our students with knowledge, skills, and values that will help them grow into confident, compassionate, and responsible global citizens. This journey of growth and learning is possible only through the combined efforts of teachers, parents, and the school community.",
+  },
+];
+
+const principalData = [
+  {
+    name: "Mr. Nikeshan Sudamji Deurmalle",
+    role: "Principal",
+    Designation:"(M A.  B Ed. 20+ Years Experience)",
+    image: "/asset/parent_img/img5.jpg",
+    description:
+      "At Future Podar Learn School, Sakoli, we believe that education is not only about academic excellence but also about nurturing young minds to become compassionate, confident, and responsible citizens of tomorrow. Each child is unique, and our endeavor is to provide an environment that encourages curiosity, creativity, and critical thinking.We truly value the partnership between school and home. Your trust, encouragement, and active involvement play a vital role in shaping the learning journey of our students. Together, we can inspire children to set high aspirations and work with dedication to achieve them.",
+  },
+];
 
 const achievements = [
     { id: 1, icon: <Award className="w-8 h-8" />, text: "98% Board Exam Success Rate" },
@@ -89,7 +101,7 @@ export default function About() {
 
         {/* Team Cards */}
         <div className="flex flex-col items-center gap-6">
-          {teamData.map((person, idx) => (
+          {directorData.map((person, idx) => (
             <div
               key={idx}
               className="bg-white flex flex-col sm:flex-row items-center sm:items-start rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-2xl p-4 sm:p-6 transition hover:shadow-2xl"
@@ -107,7 +119,6 @@ export default function About() {
 
               {/* Text */}
               <div className="flex flex-col sm:ml-4 md:ml-6 text-center sm:text-left">
-                
                 <h3 className="text-lg sm:text-xs md:text-sm font-bold text-gray-800">
                   {person.description}
                 </h3>
@@ -134,7 +145,7 @@ export default function About() {
 
         {/* Team Cards */}
         <div className="flex flex-col items-center gap-6">
-          {teamData.map((person, idx) => (
+          {principalData.map((person, idx) => (
             <div
               key={idx}
               className="bg-white flex flex-col sm:flex-row items-center sm:items-start rounded-lg shadow-lg w-full max-w-md sm:max-w-lg md:max-w-2xl p-4 sm:p-6 transition hover:shadow-2xl"
@@ -152,7 +163,6 @@ export default function About() {
 
               {/* Text */}
               <div className="flex flex-col sm:ml-4 md:ml-6 text-center sm:text-left">
-                
                 <h3 className="text-lg sm:text-xs md:text-sm font-bold text-gray-800">
                   {person.description}
                 </h3>
@@ -161,6 +171,9 @@ export default function About() {
                 </p>
                 <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
                   {person.role}
+                </p>
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">
+                  {person.Designation}
                 </p>
               </div>
             </div>
@@ -193,10 +206,7 @@ export default function About() {
               <h2 className="text-2xl mt-4 font-bold text-gray-800 mb-3">Our Vision</h2>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-              To be a leading institution that nurtures students to reach their full potential.
-              To foster a culture of innovation, creativity, and critical thinking.
-              To develop responsible citizens who contribute positively to society.
-              To provide holistic education balancing academics, sports, and arts.
+              To be the best and be recognized as raising the traditional standards of educational possibilities and outcomes for students, parents, and society.
             </p>
           </div>
 
@@ -212,11 +222,10 @@ export default function About() {
               <h2 className="text-2xl mt-4 font-bold text-gray-800 mb-3">Our Mission</h2>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-              To deliver high-quality education through a student-centered approach.
-              To encourage lifelong learning and curiosity.
-              To build character, leadership, and values in every student.
-              To create a safe, inclusive, and supportive environment for all learners.
-              To actively engage parents, community, and staff in the educational journey.
+              To develop and equip the children of India for the challenges of the 21st century.
+              To provide opportunities for students in a stimulating, safe, and supportive environment to attain personal mastery and team spirit through collaborative learning.
+              To create globally competent, ethical, and high-performing world citizens through world-class education.
+              To nurture creative, critical, and independent thinkers.
             </p>
           </div>
         </div>
