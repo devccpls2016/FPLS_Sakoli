@@ -164,7 +164,7 @@ export default function Home() {
     { id: 8, image: "/asset/news/img-8.jpeg", desc: "School hosts interscholastic debate competition successfully" },
     { id: 9, image: "/asset/news/img-9.jpeg", desc: "School hosts interscholastic debate competition successfully" },
     { id: 10, image: "/asset/news/img-10.jpeg", desc: "School hosts interscholastic debate competition successfully" },
-    { id: 11, image: "/asset/news/img-11.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 11, image: "/asset/news/img-11.jpeg", desc: "Students win regional science fair award" },
      
   ];
 
