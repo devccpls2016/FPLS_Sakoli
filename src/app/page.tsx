@@ -145,13 +145,55 @@ export default function Home() {
   const [showAll, setShowAll] = useState(false);
 
   const pdfs = [
-      { title: "Previous month report", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
-      { title: "July 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
-      { title: "Jun 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
-      { title: "May 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
-      { title: "April 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
-      { title: "March Report", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/demo1.pdf" },
+      { title: "Previous month report", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/Podar_Oct_E Magzine.pdf" },   
+      { title: "Sept 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/Spt_Magazine.pdf" },
+      { title: "Aug 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/Aug_Magazine.pdf" },
+      { title: "July 2025", thumbnail: "/asset/thambnail/thamb1.jpg", link: "/asset/PDF/July_Magazine.pdf"}, 
+       
     ];
+
+  // Latest news items (image + short description of ~6-7 words)
+  const latestNews = [
+    { id: 1, image: "/asset/news/img-1.jpeg", desc: "Students win regional science fair award" },
+    { id: 2, image: "/asset/news/img-2.jpeg", desc: "Annual sports day celebrates student achievements" },
+    { id: 3, image: "/asset/news/img-3.jpeg", desc: "New science lab inaugurated with modern equipment" },
+    { id: 4, image: "/asset/news/img-4.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 5, image: "/asset/news/img-5.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 6, image: "/asset/news/img-6.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 7, image: "/asset/news/img-7.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 8, image: "/asset/news/img-8.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 9, image: "/asset/news/img-9.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 10, image: "/asset/news/img-10.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+    { id: 11, image: "/asset/news/img-11.jpeg", desc: "School hosts interscholastic debate competition successfully" },
+     
+  ];
+
+  // Toggle state for Latest News view more / view less
+  const [showAllNews, setShowAllNews] = useState(false);
+  const newsVisibleCount = showAllNews ? latestNews.length : 3;
+
+  // Lightbox (image modal) state
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState("");
+
+  const openLightbox = (src: string) => {
+    setLightboxImage(src);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxImage("");
+  };
+
+  // close lightbox on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <main className="w-full">
@@ -233,6 +275,33 @@ export default function Home() {
         />
       </div>
     </section>
+    {/* Lightbox Modal */}
+    {lightboxOpen && (
+      <div
+        role="dialog"
+        aria-modal="true"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+        onClick={closeLightbox}
+      >
+        <div
+          className="relative max-w-[95vw] max-h-[95vh]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={closeLightbox}
+            aria-label="Close image"
+            className="absolute -top-4 -right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100"
+          >
+            ✕
+          </button>
+          <img
+            src={lightboxImage}
+            alt="Enlarged news"
+            className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded"
+          />
+        </div>
+      </div>
+    )}
 
       {/* Podar School at a Glance */}
       <section className="bg-[#FAF9F6] py-16">
@@ -296,7 +365,75 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* PDF Marquee Section */}
+        <section className="bg-[#FAF9F6] py-16 overflow-hidden">
+      <h2 className="text-4xl font-bold text-purple-700 text-center ">
+        PODAR FPLS SPOTLIGHTS
+      </h2>
+      <h2 className="text-xl  text-gray-500 text-center mb-10">
+        Monthly Reports & Brochures
+      </h2>
 
+      <div className="flex flex-col lg:flex-row gap-6 items-center max-w-7xl mx-auto px-4">
+        {/* First Card (Fixed) */}
+        <a
+          href={pdfs[0].link}
+          target="_blank"
+          className="w-full lg:min-w-[300px] lg:w-auto bg-white rounded-2xl shadow-md p-4 text-center 
+                    font-semibold text-black transition-transform duration-300 
+                    hover:scale-105 hover:shadow-2xl flex flex-col items-center"
+        >
+          <img
+            src={pdfs[0].thumbnail }
+            alt={pdfs[0].title}
+            className="w-full h-80 rounded-md mb-3 object-cover"
+          />
+          📄 {pdfs[0].title}
+        </a>
+
+        {/* Marquee Cards */}
+        <div className="relative flex-1 overflow-hidden w-full">
+          <div className="flex gap-6 animate-marquee">
+            {pdfs.slice(1).map((pdf, idx) => (
+              <a
+                key={idx}
+                href={pdf.link}
+                target="_blank"
+                className="min-w-[300px] bg-white rounded-2xl shadow-md p-4 text-center 
+                          font-semibold text-black transition-transform duration-300 
+                          hover:scale-105 hover:shadow-2xl mb-6 mt-6 flex flex-col items-center"
+              >
+                <img
+                  src={pdf.thumbnail }
+                  alt={pdf.title}
+                  className="w-full h-64 rounded-md mb-3 object-cover"
+                />
+                📄 {pdf.title}
+              </a>
+            ))}
+
+            {/* Duplicate for smooth looping */}
+            {pdfs.slice(1).map((pdf, idx) => (
+              <a
+                key={`dup-${idx}`}
+                href={pdf.link}
+                target="_blank"
+                className="min-w-[300px] bg-white rounded-2xl shadow-md p-4 text-center 
+                          font-semibold text-purple-700 transition-transform duration-300 
+                          hover:scale-105 hover:shadow-2xl flex flex-col items-center"
+              >
+                <img
+                  src={pdf.thumbnail}
+                  alt={pdf.title}
+                  className="w-full h-64 rounded-md mb-3 object-cover"
+                />
+                📄 {pdf.title}
+              </a>
+            ))}
+          </div>z
+        </div>
+      </div>
+     </section>
 
       {/* Announcements and Quick Actions */}
        <section className="bg-white py-16 w-full">
@@ -485,75 +622,55 @@ export default function Home() {
       </div>
     </section>
 
-    {/* PDF Marquee Section */}
-        <section className="bg-[#FAF9F6] py-16 overflow-hidden">
-      <h2 className="text-4xl font-bold text-purple-700 text-center ">
-        PODAR FPLS SPOTLIGHTS
-      </h2>
-      <h2 className="text-xl  text-gray-500 text-center mb-10">
-        Monthly Reports & Brochures
-      </h2>
+    {/* Latest News */}
+    <section className="bg-white py-16 px-4">
+      <div className="text-center mb-12 max-w-3xl mx-auto">
+        <div>
+          <h2 className="text-4xl font-semibold text-purple-700 mb-2">
+          Latest News
+        </h2>
+        <p className="text-lg text-gray-700 font-medium">Stay updated with our recent events and highlights</p>
+        </div>
+        <div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-center max-w-7xl mx-auto px-4">
-        {/* First Card (Fixed) */}
-        <a
-          href={pdfs[0].link}
-          target="_blank"
-          className="w-full lg:min-w-[300px] lg:w-auto bg-white rounded-2xl shadow-md p-4 text-center 
-                    font-semibold text-black transition-transform duration-300 
-                    hover:scale-105 hover:shadow-2xl flex flex-col items-center"
-        >
-          <img
-            src={pdfs[0].thumbnail }
-            alt={pdfs[0].title}
-            className="w-full h-80 rounded-md mb-3 object-cover"
-          />
-          📄 {pdfs[0].title}
-        </a>
-
-        {/* Marquee Cards */}
-        <div className="relative flex-1 overflow-hidden w-full">
-          <div className="flex gap-6 animate-marquee">
-            {pdfs.slice(1).map((pdf, idx) => (
-              <a
-                key={idx}
-                href={pdf.link}
-                target="_blank"
-                className="min-w-[300px] bg-white rounded-2xl shadow-md p-4 text-center 
-                          font-semibold text-black transition-transform duration-300 
-                          hover:scale-105 hover:shadow-2xl mb-6 mt-6 flex flex-col items-center"
-              >
+        </div>
+          
+      </div>  
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestNews.slice(0, newsVisibleCount).map((n) => (
+            <div
+              key={n.id}
+              className="bg-[#FAF9F6] rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 overflow-hidden"
+            >
+              <div className="w-full h-64 bg-gray-200 flex items-center justify-center p-3">
                 <img
-                  src={pdf.thumbnail }
-                  alt={pdf.title}
-                  className="w-full h-64 rounded-md mb-3 object-cover"
+                  src={n.image}
+                  alt={`news-${n.id}`}
+                  className="max-w-full max-h-full object-contain cursor-pointer"
+                  onClick={() => openLightbox(n.image)}
                 />
-                📄 {pdf.title}
-              </a>
-            ))}
+              </div>
+              <div className="p-6">
+                <p className="text-gray-800 font-semibold mb-2 text-lg">{n.desc}</p>
+                <p className="text-sm text-gray-500">{/* optional short meta or date could go here */}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-            {/* Duplicate for smooth looping */}
-            {pdfs.slice(1).map((pdf, idx) => (
-              <a
-                key={`dup-${idx}`}
-                href={pdf.link}
-                target="_blank"
-                className="min-w-[300px] bg-white rounded-2xl shadow-md p-4 text-center 
-                          font-semibold text-purple-700 transition-transform duration-300 
-                          hover:scale-105 hover:shadow-2xl flex flex-col items-center"
-              >
-                <img
-                  src={pdf.thumbnail}
-                  alt={pdf.title}
-                  className="w-full h-64 rounded-md mb-3 object-cover"
-                />
-                📄 {pdf.title}
-              </a>
-            ))}
-          </div>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowAllNews(!showAllNews)}
+            className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
+          >
+            {showAllNews ? "View Less" : "View More"}
+          </button>
         </div>
       </div>
+
     </section>
+    
 
 
     </main>

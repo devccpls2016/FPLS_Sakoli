@@ -6,7 +6,7 @@ const directorData = [
   {
     name: "Mrs. Namita Ajay Tumsare",
     role: "Director",
-    image: "/asset/parent_img/img4.jpg",
+    image: "/asset/Facalty_img/director_img.jpeg",
     description:
       "As the world is changing rapidly, it is our purpose to equip our students with knowledge, skills, and values that will help them grow into confident, compassionate, and responsible global citizens. This journey of growth and learning is possible only through the combined efforts of teachers, parents, and the school community.",
   },
@@ -17,7 +17,7 @@ const principalData = [
     name: "Mr. Nikeshan Sudamji Deurmalle",
     role: "Principal",
     Designation:"(M A.  B Ed. 20+ Years Experience)",
-    image: "/asset/parent_img/img5.jpg",
+    image: "/asset/Facalty_img/principal_img.jpeg",
     description:
       "At Future Podar Learn School, Sakoli, we believe that education is not only about academic excellence but also about nurturing young minds to become compassionate, confident, and responsible citizens of tomorrow. Each child is unique, and our endeavor is to provide an environment that encourages curiosity, creativity, and critical thinking.We truly value the partnership between school and home. Your trust, encouragement, and active involvement play a vital role in shaping the learning journey of our students. Together, we can inspire children to set high aspirations and work with dedication to achieve them.",
   },
@@ -94,7 +94,7 @@ export default function About() {
       <section className="bg-[#FAF9F6] py-10 px-4">
         {/* Section Title */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-purple-700 mb-2">
+          <h2 className="text-2xl sm:text-4xl font-semibold text-purple-700 mb-2">
             From the Director’s Desk
           </h2>
         </div>
