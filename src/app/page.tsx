@@ -184,7 +184,7 @@ export default function Home() {
             </p>
             
             <div className="flex gap-4 flex-wrap justify-center">
-              <Link href="/contact">
+              <Link href="/applyform">
                 <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
                   Apply For Admission
                  </button>
