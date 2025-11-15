@@ -48,15 +48,15 @@ export default function Home() {
 
   //facilities data
   const facilities = [
-  { id: 1, title: "Excellence in Education", desc: "Over 150 years of educational excellence across India", image: "/asset/facility_img/facility1.svg" },
-  { id: 2, title: "Sports & Fitness", desc: "World-class sports infrastructure to keep students active", image: "/asset/facility_img/facility1.svg" },
-  { id: 3, title: "Modern Labs", desc: "Well-equipped labs for science, robotics, and AI learning", image: "/asset/facility_img/facility1.svg" },
-  { id: 4, title: "Library & Resources", desc: "Extensive digital and physical library collections", image: "/asset/facility_img/facility1.svg" },
-  { id: 5, title: "Creative Arts", desc: "Nurturing creativity with music, dance, and theater", image: "/asset/facility_img/facility1.svg" },
-  { id: 6, title: "Technology Integration", desc: "Smart classrooms with interactive learning tools", image: "/asset/facility_img/facility1.svg" },
-  { id: 7, title: "Global Exposure", desc: "Exchange programs with international schools", image: "/asset/facility_img/facility1.svg" },
-  { id: 8, title: "Safe Campus", desc: "Highly secure and student-friendly environment", image: "/asset/facility_img/facility1.svg" },
-  { id: 9, title: "Career Guidance", desc: "Personalized mentoring and counseling sessions", image: "/asset/facility_img/facility1.svg" },
+  { id: 1, title: "Excellence in Education", desc: "Over 150 years of educational excellence across India", image: "/asset/facility_img/Excellence in Education.jpeg" },
+  { id: 2, title: "Sports & Fitness", desc: "World-class sports infrastructure to keep students active", image: "/asset/facility_img/Sports & Fitness.jpeg" },
+  { id: 3, title: "Modern Labs", desc: "Well-equipped labs for science, robotics, and AI learning", image: "/asset/facility_img/Modern Lab.jpeg" },
+  { id: 4, title: "Library & Resources", desc: "Extensive digital and physical library collections", image: "/asset/facility_img/Library & Resources.jpeg" },
+  { id: 5, title: "Creative Arts", desc: "Nurturing creativity with music, dance, and theater", image: "/asset/facility_img/Creative Labs.jpeg" },
+  { id: 6, title: "Technology Integration", desc: "Smart classrooms with interactive learning tools", image: "/asset/facility_img/Technology Integration.jpeg" },
+  { id: 7, title: "Global Exposure", desc: "Exchange programs with international schools", image: "/asset/facility_img/Global Exposure.jpeg" },
+  { id: 8, title: "Safe Campus", desc: "Highly secure and student-friendly environment", image: "/asset/facility_img/Safe Campus.jpeg" },
+  { id: 9, title: "Career Guidance", desc: "Personalized mentoring and counseling sessions", image: "/asset/facility_img/Career Guidance.jpeg" },
 ];
 
 
@@ -154,7 +154,7 @@ export default function Home() {
 
   // Latest news items (image + short description of ~6-7 words)
   const latestNews = [
-    { id: 1, image: "/asset/news/img-1.jpeg", desc: "Students win regional science fair award" },
+    { id: 1, image: "/asset/news/img-1.jpeg", desc: "Tanha Pola Celebration at Future Podar Learn School\nChildren dressed as farmers and brought decorated toy bulls to celebrate Tanha Pola, honoring farmers and agricultural traditions through cultural activities." },
     { id: 2, image: "/asset/news/img-2.jpeg", desc: "Annual sports day celebrates student achievements" },
     { id: 3, image: "/asset/news/img-3.jpeg", desc: "New science lab inaugurated with modern equipment" },
     { id: 4, image: "/asset/news/img-4.jpeg", desc: "School hosts interscholastic debate competition successfully" },
@@ -168,9 +168,8 @@ export default function Home() {
      
   ];
 
-  // Toggle state for Latest News view more / view less
-  const [showAllNews, setShowAllNews] = useState(false);
-  const newsVisibleCount = showAllNews ? latestNews.length : 3;
+  // Number of news items to show on the homepage (click "View More" to see full list)
+  const newsVisibleCount = 3;
 
   // Lightbox (image modal) state
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -660,12 +659,11 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center mt-8">
-          <button
-            onClick={() => setShowAllNews(!showAllNews)}
-            className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
-          >
-            {showAllNews ? "View Less" : "View More"}
-          </button>
+          <Link href="/news">
+            <button className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">
+              View More
+            </button>
+          </Link>
         </div>
       </div>
 
