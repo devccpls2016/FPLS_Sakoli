@@ -6,7 +6,7 @@ const directorData = [
   {
     name: "Mrs. Namita Ajay Tumsare",
     role: "Director",
-    image: "/asset/Facalty_img/director_img.jpeg",
+    image: "/asset/Facalty_img/director.jpeg",
     description:
       "As the world is changing rapidly, it is our purpose to equip our students with knowledge, skills, and values that will help them grow into confident, compassionate, and responsible global citizens. This journey of growth and learning is possible only through the combined efforts of teachers, parents, and the school community.",
   },
