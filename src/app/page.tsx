@@ -429,7 +429,7 @@ export default function Home() {
                 📄 {pdf.title}
               </a>
             ))}
-          </div>z
+          </div>
         </div>
       </div>
      </section>
