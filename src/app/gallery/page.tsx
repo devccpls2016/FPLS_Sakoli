@@ -42,9 +42,9 @@ export default function Gallery() {
   };
 
   const videos = [
-    { id: 'dp2OYt_2O9E', title: 'School Annual Day' },
-    { id: 'wSXGpoDGDbE', title: 'Science Exhibition' },
-    { id: 'YJg1rs0R2sE', title: 'Sports Meet' },
+    { id: 'qvSxBB_LwyQ', title: 'School Annual Day' },
+    { id: 'fI_074wIBkw', title: 'Science Exhibition' },
+    { id: 'GKuvwi813LI', title: 'Sports Meet' },
     { id: '1s0KwuU5e4Y', title: 'Cultural Fest' },
     { id: 'kJQP7kiw5Fk', title: 'Music Concert' },
     { id: 'TGpG56pg3UU', title: 'Debate Competition' },
